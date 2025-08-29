@@ -197,9 +197,9 @@ By the end of this learning path, you should understand:
 
 ### Todos - Deadline > 1 week (until end of August)
 
-[] Setup & Install lib
+[x] Setup & Install lib
 [x] Read `logger.py`
 [x] Read `ingestion.py`
 [x] Read `backend/core.py`
-[] Streamlit Interface
-[] Run Complete Application
+[x] Streamlit Interface
+[x] Run Complete Application

@@ -1,6 +1,8 @@
 from dotenv import load_dotenv
 import os
 
+from logger import log_header, log_info
+
 load_dotenv()
 from typing import Any, Dict, List
 
@@ -29,6 +31,35 @@ def run_llm(query: str, chat_history: List[Dict[str, Any]] = []):
     chat = ChatOpenAI(model="gpt-4o-mini", verbose=True, temperature=0)
 
     rephrase_prompt = hub.pull("langchain-ai/chat-langchain-rephrase")
+
+    # Log the rephrase prompt details
+    log_header("REPHRASE PROMPT DETAILS")
+    log_info(f"Template: {rephrase_prompt.template}")
+    log_info(f"Input variables: {rephrase_prompt.input_variables}")
+
+    # If you want to see the actual formatted prompt for this specific query:
+    if chat_history:
+        formatted_rephrase = rephrase_prompt.format(
+            input=query, chat_history=chat_history
+        )
+        log_info("Formatted rephrase prompt:")
+        log_info(formatted_rephrase)
+
+        # NEW: Log the AI's rephrased response
+        log_header("AI REPHRASING RESPONSE")
+        log_info(f"Original query: {query}")
+
+        # Invoke the rephrase prompt to get AI's rephrased version
+        rephrased_query = chat.invoke(
+            rephrase_prompt.format(input=query, chat_history=chat_history)
+        ).content
+
+        log_info(f"AI rephrased query: {rephrased_query}")
+
+    else:
+        log_info("No chat history - query will be used as-is")
+        rephrased_query = query  # No rephrasing needed
+        log_info(f"Query used directly: {rephrased_query}")
 
     retrieval_qa_chat_prompt = hub.pull("langchain-ai/retrieval-qa-chat")
     stuff_documents_chain = create_stuff_documents_chain(chat, retrieval_qa_chat_prompt)
@@ -65,6 +96,12 @@ def run_llm(query: str, chat_history: List[Dict[str, Any]] = []):
     print(f"\n🤖 GENERATING ANSWER...")
     print("-" * 60)
 
+    print(f"\n📚 Sources ({len(result['context'])} docs):")
+    for i, doc in enumerate(result["context"], 1):
+        source = doc.metadata.get("source", "Unknown")
+        print(f"{i}. {source}")
+    print("-" * 60)
+
     return result
 
 
@@ -75,7 +112,7 @@ Quick test script - minimal example
 
 def quick_test():
     # Test query
-    query = "What is Chroma DB that Langchain uses?"
+    query = "Why Langchain is a good tool for RAG?"
 
     print(f"🤔 Question: {query}")
     print("🔄 Processing...")
