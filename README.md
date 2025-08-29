@@ -1,4 +1,3 @@
-
 # 🦜 LangChain Documentation Helper
 
 <div align="center">
@@ -51,15 +50,15 @@ The **LangChain Documentation Helper** is a sophisticated AI-powered web applica
 
 <div align="center">
 
-| Component | Technology | Description |
-|-----------|------------|-------------|
-| 🖥️ **Frontend** | Streamlit | Interactive web interface |
-| 🧠 **AI Framework** | LangChain 🦜🔗 | Orchestrates the AI pipeline |
-| 🔍 **Vector Database** | Pinecone 🌲 | Stores and retrieves document embeddings |
-| 🌐 **Web Crawling** | Tavily | Intelligent web scraping and content extraction |
-| 🧩 **Memory** | Conversational Memory | Coreference resolution and context continuity |
-| 🤖 **LLM** | OpenAI GPT | Powers the conversational AI |
-| 🐍 **Backend** | Python | Core application logic |
+| Component              | Technology            | Description                                     |
+| ---------------------- | --------------------- | ----------------------------------------------- |
+| 🖥️ **Frontend**        | Streamlit             | Interactive web interface                       |
+| 🧠 **AI Framework**    | LangChain 🦜🔗        | Orchestrates the AI pipeline                    |
+| 🔍 **Vector Database** | Pinecone 🌲           | Stores and retrieves document embeddings        |
+| 🌐 **Web Crawling**    | Tavily                | Intelligent web scraping and content extraction |
+| 🧩 **Memory**          | Conversational Memory | Coreference resolution and context continuity   |
+| 🤖 **LLM**             | OpenAI GPT            | Powers the conversational AI                    |
+| 🐍 **Backend**         | Python                | Core application logic                          |
 
 </div>
 
@@ -75,14 +74,16 @@ The **LangChain Documentation Helper** is a sophisticated AI-powered web applica
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/emarco177/documentation-helper.git
    cd documentation-helper
    ```
 
 2. **Set up environment variables**
-   
+
    Create a `.env` file in the root directory:
+
    ```env
    PINECONE_API_KEY=your_pinecone_api_key_here
    OPENAI_API_KEY=your_openai_api_key_here
@@ -90,16 +91,19 @@ The **LangChain Documentation Helper** is a sophisticated AI-powered web applica
    ```
 
 3. **Install dependencies**
+
    ```bash
    pipenv install
    ```
 
 4. **Ingest LangChain Documentation** (Run the ingestion pipeline)
+
    ```bash
    python ingestion.py  # Uses Tavily to crawl and index documentation
    ```
 
 5. **Run the application**
+
    ```bash
    streamlit run main.py
    ```
@@ -150,11 +154,11 @@ These tutorials provide step-by-step guidance on integrating Tavily's powerful w
 
 ### Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `PINECONE_API_KEY` | Your Pinecone API key for vector storage | ✅ |
-| `OPENAI_API_KEY` | Your OpenAI API key for LLM access | ✅ |
-| `TAVILY_API_KEY` | Your Tavily API key for documentation crawling and web search | ✅ |
+| Variable           | Description                                                   | Required |
+| ------------------ | ------------------------------------------------------------- | -------- |
+| `PINECONE_API_KEY` | Your Pinecone API key for vector storage                      | ✅       |
+| `OPENAI_API_KEY`   | Your OpenAI API key for LLM access                            | ✅       |
+| `TAVILY_API_KEY`   | Your Tavily API key for documentation crawling and web search | ✅       |
 
 ## 🤝 Contributing
 
@@ -163,6 +167,7 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 ## 📚 Learning Resources
 
 This project is designed as a learning tool for understanding:
+
 - 🦜 LangChain framework implementation
 - 🔍 Vector search and embeddings
 - 💬 Conversational AI development
@@ -175,21 +180,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🌟 Support
 
 If you find this project helpful, please consider:
+
 - ⭐ Starring the repository
 - 🐛 Reporting issues
 - 💡 Contributing improvements
 - 📢 Sharing with others
-
----
-
-<div align="center">
-
-### 🔗 Connect with Me
-
-[![Portfolio](https://img.shields.io/badge/Portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://www.udemy.com/course/langchain/?referralCode=D981B8213164A3EA91AC)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/eden-marco/)
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/EdenEmarco177)
-
-**Built with ❤️ by Eden Marco**
-
-</div>
